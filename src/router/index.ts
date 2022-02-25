@@ -3,15 +3,20 @@ import Home from "../views/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: '/',
+    redirect: '/dashboard'
+  },
+  {
     path: "/",
     name: "Home",
     component: Home,
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    children: [
+      {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: () => import(/* webpackChunkName: "dashboard" */ "../views/Dashboard.vue"),
+      }
+    ],
   },
   {
     path: "/login",

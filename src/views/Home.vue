@@ -1,16 +1,21 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <Header />
+    <router-view v-slot="{ Component }">
+      <transition name="move" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
 <script lang="ts">
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import Header from "@/components/Header.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    Header,
+  },
+};
 </script>

@@ -1,20 +1,20 @@
 <template>
   <div class="login">
-    <div class="login-content">
-      <el-form ref="formRef" :model="loginForm" label-width="80px">
-        <el-form-item label="名称">
-          <el-input v-model="loginForm.name"></el-input>
-        </el-form-item>
-        <el-form-item label="密码">
-          <el-input
-            v-model="loginForm.password"
-            type="password"
-            show-password
-          />
-        </el-form-item>
-      </el-form>
-      <el-button type="primary" @click="submit()">登录</el-button>
-    </div>
+    <el-card shadow="hover" class="login-content">
+        <el-form ref="formRef" :model="loginForm" label-width="80px">
+          <el-form-item label="名称">
+            <el-input v-model="loginForm.name"></el-input>
+          </el-form-item>
+          <el-form-item label="密码">
+            <el-input
+              v-model="loginForm.password"
+              type="password"
+              show-password
+            />
+          </el-form-item>
+        </el-form>
+        <el-button type="primary" @click="submit()">登录</el-button>
+    </el-card>
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
 
     const submit = () => {
       console.log(loginForm);
-      router.push('/');
+      router.push("/");
     };
 
     return { loginForm, submit };
@@ -48,7 +48,6 @@ export default {
   background-image: url("../assets/login_bg.png");
   background-size: 100%;
   .login-content {
-      background: aliceblue;
     position: absolute;
     width: 320px;
     height: 140px;
@@ -56,7 +55,6 @@ export default {
     margin: 0 auto;
     text-align: center;
     padding: 24px;
-    border-radius: 4px;
     left: 50%;
     margin-left: -160px;
   }
